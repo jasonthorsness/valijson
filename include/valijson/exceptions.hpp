@@ -1,6 +1,5 @@
 #pragma once
 
-#include <iostream>
 #include <exception>
 
 namespace valijson {
@@ -22,11 +21,9 @@ VALIJSON_NORETURN inline void throwLogicError(const std::string& msg) {
 }
 #else
 VALIJSON_NORETURN inline void throwRuntimeError(const std::string& msg) {
-  std::cerr << msg << std::endl;
   abort();
 }
 VALIJSON_NORETURN inline void throwLogicError(const std::string& msg) {
-  std::cerr << msg << std::endl;
   abort();
 }
 
