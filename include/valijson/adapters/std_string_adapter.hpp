@@ -309,37 +309,27 @@ public:
 
     bool maybeBool() const override
     {
-        return m_value == "true" || m_value == "false";
+        return false;
     }
 
     bool maybeDouble() const override
     {
-        const char *b = m_value.c_str();
-        char *e = nullptr;
-        strtod(b, &e);
-        return e != b && e == b + m_value.length();
+        return false;
     }
 
     bool maybeInteger() const override
     {
-        std::istringstream i(m_value);
-        int64_t x;
-        char c;
-        if (!(i >> x) || i.get(c)) {
-            return false;
-        }
-
-        return true;
+        return false;
     }
 
     bool maybeNull() const override
     {
-        return m_value.empty();
+        return false;
     }
 
     bool maybeObject() const override
     {
-        return m_value.empty();
+        return false;
     }
 
     bool maybeString() const override
